@@ -7,7 +7,10 @@ const hbs = require('express-handlebars');
 const db = require('./config/connection');
 var adminRouter = require('./routes/admin');
 var usersRouter = require('./routes/users');
-require('dotenv').config()
+const session =require('express-session');
+
+
+
 
 
 
@@ -21,17 +24,25 @@ app.engine('hbs',hbs({extname:'hbs',defaultLayout:'layout',layoutsDir:__dirname+
 app.use(logger('dev'));
 require('dotenv').config()
 
+
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+app.use(session({
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: true,
+}))
 
 db.connect((err)=>{
   if(err){
     console.log(err);
   }else{
     console.log("db connected");
-    console.log(process.env.NAME);
   }
 })
 app.use('/admin', adminRouter);

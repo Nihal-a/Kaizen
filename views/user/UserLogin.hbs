@@ -1,0 +1,147 @@
+<Header class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark  sticky-top">
+        <div class="container ">
+            <a class="navbar-brand" href="#">Kaizen Coworks.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse mx-auto" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item"></li>
+                    <a class="nav-link ">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " aria-current="page" href="#">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blogs</a>
+                    </li>
+                    <li class="nav-item"></li>
+                    <a class="nav-link ">My Applications</a>
+                    </li>
+
+                </ul>
+                <div>
+                    <a href="" class="loginbtn">Log in</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</Header>
+<section class="loginpage">
+    <div class="row m-0">
+        <div class="col-lg-8 mx-auto mt-5 mb-5">
+            <div class="card">
+                <div class="row">
+                    <div class="col-lg-5 right my-auto">
+                        <h3 class="text-center m-5 fw-bold">LOGIN</h3>
+                        <form action="" class="mb-4" id="form">
+
+                            <div class="px-4">
+                                <span class="theme-input mx-auto">
+                                    <i class="fas fa-mail-bulk"></i>
+                                    <input type="email" name="email" id="email" placeholder="Email">
+                                </span>
+                                <label id="email-error" class="error" for="email"></label>
+                            </div>
+                            <div class="px-4">
+                                <span class="theme-input mx-auto">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="password" name="password" id="password" placeholder="Password">
+                                </span>
+                                <label id="password-error" class="error" for="password"></label>
+                            </div>
+
+
+
+                            <div class="text-center">
+                                <button class="yellobtn text-white">Create Account </button>
+                            </div>
+                            <div class="error text-center" id="error"></div>
+
+                        </form>
+                        <div class="text-center mt-auto mb-4">
+
+                            <span class=" text-center">Already have an account? <a href="/signup">Signup now</a></span>
+                        </div>
+
+
+                    </div>
+                    <div class="col-lg-7 left">
+                        <h2 class="mb-3">Welcome back</h2>
+                        <span class="mt-3">To keep connected with us.</span>
+                        <div class="img mt-5">
+                            <img src="./Assets/login.svg" alt="">
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="footer">
+    <h5>Kaizen Coworks © All Rights Reserved </h5>
+    <h6>Designed and devoloped by advodigitals</h6>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+
+<script>
+    $.validator.addMethod("customName", function (value, element) {
+        return this.optional(element) || /^([a-zA-Z])+([a-zA-Z])+$/.test(value);
+    }, 'Enter a valid input');
+    $("#form").validate({
+        rules: {
+            email: {
+                required: true,
+                email: true
+            },
+            password: {
+                required: true,
+                minlength: 5
+            },
+        },
+        messages: {
+
+        },
+        errorPlacement: function (error, element) {
+            if (element.is(":checkbox")) {
+                error.appendTo(element.parents(".agree"));
+            } else {
+                error.insertAfter(element);
+            }
+        },
+        submitHandler: function (form) {
+            let email = $("#email").val()
+            let password = $("#password").val()
+            $.ajax({
+                url: "/login",
+                data: { email, password },
+                method: "post",
+                success: function (response) {
+                    location.href = "http://localhost:3001/"
+                },
+                error: function (err) {
+                    console.log(err.responseJSON)
+                    document.getElementById("error").innerHTML = err.responseJSON.message
+                }
+            })
+        }
+
+    })
+
+</script>

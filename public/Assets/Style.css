@@ -107,7 +107,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 10px 0px;
+  margin: 20px 0px;
 }
 
 .theme-input i {
@@ -120,10 +120,6 @@ body {
   outline: none;
   background-color: transparent;
   width: 100%;
-}
-.error{
-  color: red;
-  margin-right: 20px;
 }
 
 .img {
