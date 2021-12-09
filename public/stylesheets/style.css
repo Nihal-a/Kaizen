@@ -621,3 +621,31 @@ body {
           justify-content: center;
 }
 /*# sourceMappingURL=Style.css.map */
+
+
+/* Registration form */
+
+.business-wrapper{
+  height: 24rem;
+  border: 1px solid #767676;
+}
+.regInput{
+  height: 40px;
+  border: 0;
+  outline: 0;
+  background-color: #EDF2F6;
+}
+.regLabel{
+  font-weight: 500;
+}
+.regTitle{
+  font-size: 18px;
+}
+.regTextArea{
+  border: 0;
+  outline: 0;
+  background-color: #EDF2F6;
+  padding: 1rem;
+  resize: none;
+}
+/* Registration form */
