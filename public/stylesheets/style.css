@@ -27,6 +27,8 @@ body {
   padding: 10px;
   margin: 10px;
   font-weight: bold;
+  text-decoration: none;
+  text-align: center;
 }
 
 .yellobtn:hover {
@@ -263,7 +265,7 @@ body {
 
 .getAQuote {
   /* The image used */
-  background-image: url("./gal12.jpg");
+  background-image: url("../Assets/gal12.jpg");
   /* Full height */
   height: 100%;
   /* Create the parallax scrolling effect */

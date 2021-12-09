@@ -47,6 +47,10 @@ router.get('/plc', function (req, res) {
 router.get('/llp', function (req, res) {
   res.render('user/LLP');
 });
+router.get('/ps', function (req, res) {
+  res.render('user/PS');
+});
+
 
 router.get('/llpform/:id', function (req, res) {
   let id =req.params.id;
@@ -71,9 +75,7 @@ router.get('/llpformaddon/:id/:addonId', function (req, res) {
 
 });
 
-router.get('/ps', function (req, res) {
-  res.render('user/PS');
-});
+
 router.get('/Servicedetails', function (req, res) {
   res.render('user/ServiceDetails');
 });
