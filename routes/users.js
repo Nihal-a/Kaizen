@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const { doSignup, doLogin } = require('../helpers/authHelpers')
-const { createllpservice, getAmount ,addAddons} = require('../helpers/userHelpers')
+const { createllpservice, getAmount ,addAddons,addAddress} = require('../helpers/userHelpers')
 
 const verifylogin = (req, res, next) => {
   console.log(req.session.userDetails);
@@ -38,80 +38,6 @@ router.get('/login', verifylogout, function (req, res) {
 router.get('/signup', verifylogout, function (req, res) {
   res.render('user/UserSignup');
 });
-
-
-
-router.get('/plc', function (req, res) {
-  res.render('user/PLC');
-});
-router.get('/llp', function (req, res) {
-  res.render('user/LLP');
-});
-router.get('/ps', function (req, res) {
-  res.render('user/PS');
-});
-
-
-router.get('/llpform/:id', function (req, res) {
-  let id =req.params.id;
-  getAmount(id).then(()=>{
-
-  })
-
-
-  res.render('user/LLPform',{id});
-});
-
-router.get('/llpformaddon/:id/:addonId', function (req, res) {
-  let id =req.params.id;
-  let addonId=req.params.addonId;
-  console.log(id,addonId);
-  addAddons(id,addonId).then(()=>{
-
-  }).catch(()=>{
-
-  })
-
-
-});
-
-
-router.get('/Servicedetails', function (req, res) {
-  res.render('user/ServiceDetails');
-});
-
-router.get('/checkout', verifylogin, function (req, res) {
-  res.render('user/Checkout');
-});
-
-router.get('/addLLpservice', verifylogin, (req, res) => {
-
-  let user = req.session.userDetails
-  console.log(user);
-  if (user) {
-    console.log(user);
-
-    createllpservice(user).then((data) => {
-      res.redirect(`/llpform/${data}`)
-
-    }).catch((err) => {
-      res.redirect('/llp')
-    })
-
-  }
-
-
-
-})
-
-router.get('/logout', function (req, res) {
-  req.session.destroy()
-  res.redirect('/')
-})
-
-
-
-
 
 router.post('/signup', (req, res) => {
   const userData = req.body
@@ -152,5 +78,107 @@ router.post('/login', (req, res) => {
   })
 
 })
+
+router.get('/logout', function (req, res) {
+  req.session.destroy()
+  res.redirect('/')
+})
+
+
+
+
+router.get('/plc', function (req, res) {
+  res.render('user/PLC');
+});
+router.get('/llp', function (req, res) {
+  res.render('user/LLP');
+});
+router.get('/ps', function (req, res) {
+  res.render('user/PS');
+});
+
+
+router.get('/addLLpservice', verifylogin, (req, res) => {
+
+  let user = req.session.userDetails
+  console.log(user);
+  if (user) {
+    console.log(user);
+
+    createllpservice(user).then((data) => {
+      res.redirect(`/llpform/${data}`)
+
+    }).catch((err) => {
+      res.redirect('/llp')
+    })
+
+  }
+})
+
+router.get('/llpform/:id', function (req, res) {
+  let id =req.params.id;
+  getAmount(id).then(()=>{
+  })
+  res.render('user/LLPform',{id});
+});
+
+
+
+
+
+
+router.get('/checkout', verifylogin, function (req, res) {
+  res.render('user/Checkout');
+});
+
+
+
+
+
+
+
+
+
+router.get('/llpformaddon/:id/:addonId', function (req, res) {
+  let id =req.params.id;
+  let addonId=req.params.addonId;
+  console.log(id,addonId);
+  addAddons(id,addonId).then(()=>{
+
+  }).catch(()=>{
+
+  })
+
+
+});
+
+
+
+
+
+
+router.get('/addAddress',(req,res)=>{
+  let user = req.session.userDetails
+  console.log(user);
+  if (user) {
+    console.log(user);
+
+    addAddons(user).then((data) => {
+      res.redirect(`/llpform/${data}`)
+
+    }).catch((err) => {
+      res.redirect('/llp')
+    })
+
+  }
+
+})
+
+
+
+
+
+
+
 
 module.exports = router;

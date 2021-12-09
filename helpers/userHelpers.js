@@ -6,12 +6,12 @@ const { ObjectID } = require('mongodb');
 
 
 module.exports = {
-    createllpservice: (user) => {
-        console.log(user);
+    createService: (user,service) => {
+
         return new Promise(async (resolve, reject) => {
-            let product = await db.get().collection(PRODUCTS_COLLECTIONS).findOne({ name: "plc" })
-            console.log(product);
-            console.log(user);
+
+            let product = await db.get().collection(PRODUCTS_COLLECTIONS).findOne({ name: service })
+            
             db.get().collection(SERVICE_COLLECTIONS).insertOne({ userid: user, services: [product] }).then((result) => {
                 console.log(result.insertedId);
                 resolve(result.insertedId)
@@ -24,6 +24,7 @@ module.exports = {
 
 
     },
+    
     getAmount: (id) => {
 
         return new Promise(async (resolve, reject) => {
@@ -48,6 +49,22 @@ module.exports = {
         })
 
     },
+
+    addAddress: (id) => {
+        return new Promise(async (resolve, reject) => {
+            let addon = await db.get().collection(ADDON_COLLECTIONS).findOne({ name:"VAddress"}) 
+            if (addon !== null) {
+                await db.get().collection(SERVICE_COLLECTIONS).updateOne(
+                    { _id: ObjectID(id) },
+                    { $push: {  "services": addon } }
+                ).then((result) => {
+                    console.log(result);
+                })
+            }
+        })
+    },
+
+
     addAddons: (id, addonId) => {
         return new Promise(async (resolve, reject) => {
             let addon = await db.get().collection(ADDON_COLLECTIONS).findOne({ _id: ObjectID(addonId) })
