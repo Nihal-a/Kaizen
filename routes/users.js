@@ -39,6 +39,8 @@ router.get('/signup', verifylogout, function (req, res) {
   res.render('user/UserSignup');
 });
 
+
+
 router.post('/signup', (req, res) => {
   const userData = req.body
 
@@ -46,7 +48,7 @@ router.post('/signup', (req, res) => {
 
     console.log("Data : ", data);
 
-    req.session.user = data.user
+    req.session.userDetails = data.user
 
     req.session.userLoggedIn = true
 
@@ -171,7 +173,9 @@ router.get('/checkout', verifylogin, function (req, res) {
 
 
 
-
+router.get('/form' , (req, res) => {
+  res.render('user/form')
+})
 
 
 module.exports = router;

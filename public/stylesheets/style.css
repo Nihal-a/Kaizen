@@ -621,3 +621,71 @@ body {
           justify-content: center;
 }
 /*# sourceMappingURL=Style.css.map */
+
+
+/* Registration form */
+
+.business-wrapper{
+  height: auto;
+  border: 1px solid #767676;
+}
+.director-wrapper{
+  height: auto;
+  border: 1px solid #767676;
+}
+.partner-wrapper{
+  height: auto;
+  border: 1px solid #767676;
+}
+.regInput{
+  height: 40px;
+  border: 0;
+  outline: 0;
+  background-color: #EDF2F6;
+  padding: 1rem;
+}
+.regLabel{
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.regTitle{
+  font-size: 18px;
+}
+.regTextArea{
+  border: 0;
+  outline: 0;
+  background-color: #EDF2F6;
+  padding: 1rem;
+  resize: none;
+}
+.avatarImg{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #ccc5c5;
+  margin-top: 2rem;
+}
+.upload-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.uploadbtnCvr{
+  background-color: #EDF2F6;
+  position: relative;
+  padding: .7rem;
+  margin-top: 1rem;
+}
+.uploadbtn{
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+.adddDealerBtn{
+  outline: none;
+  border: none;
+  background-color: #5BD685;
+  color: #fff;
+
+}
+/* Registration form */
