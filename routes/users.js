@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const { doSignup, doLogin } = require('../helpers/authHelpers')
-const { createllpservice, getAmount ,addAddons,addAddress} = require('../helpers/userHelpers')
+const { createService, getAmount, addAddons, addAddress } = require('../helpers/userHelpers')
 
 const verifylogin = (req, res, next) => {
   console.log(req.session.userDetails);
@@ -96,30 +96,49 @@ router.get('/llp', function (req, res) {
 router.get('/ps', function (req, res) {
   res.render('user/PS');
 });
+router.get('/oppl', function (req, res) {
+  res.render('user/PS');
+});
+router.get('/pf', function (req, res) {
+  res.render('user/PS');
+});
 
 
-router.get('/addLLpservice', verifylogin, (req, res) => {
+router.get('/addservice/:service', verifylogin, (req, res) => { 
 
+  let service = req.params.service
   let user = req.session.userDetails
-  console.log(user);
-  if (user) {
-    console.log(user);
 
-    createllpservice(user).then((data) => {
-      res.redirect(`/llpform/${data}`)
+  if (user) {
+
+    createService(user,service).then((data) => {
+      res.redirect(`/form/${service}/${data}`)
 
     }).catch((err) => {
-      res.redirect('/llp')
+      res.redirect(`/${service}`)
     })
 
   }
 })
 
-router.get('/llpform/:id', function (req, res) {
-  let id =req.params.id;
-  getAmount(id).then(()=>{
+router.get('/form/:service/:id', function (req, res) {
+  let id = req.params.id;
+  getAmount(id).then((Totel) => {
+    res.render('user/LLPform', { id,Totel });
   })
-  res.render('user/LLPform',{id});
+});
+
+router.get('/addon/:id/:addon', function (req, res) {
+  let id = req.params.id;
+  let addon = req.params.addon;
+  console.log(id, addon);
+  addAddons(id, addon).then(() => {
+
+  }).catch(() => {
+
+  })
+
+
 });
 
 
@@ -139,40 +158,14 @@ router.get('/checkout', verifylogin, function (req, res) {
 
 
 
-router.get('/llpformaddon/:id/:addonId', function (req, res) {
-  let id =req.params.id;
-  let addonId=req.params.addonId;
-  console.log(id,addonId);
-  addAddons(id,addonId).then(()=>{
-
-  }).catch(()=>{
-
-  })
-
-
-});
 
 
 
 
 
 
-router.get('/addAddress',(req,res)=>{
-  let user = req.session.userDetails
-  console.log(user);
-  if (user) {
-    console.log(user);
 
-    addAddons(user).then((data) => {
-      res.redirect(`/llpform/${data}`)
 
-    }).catch((err) => {
-      res.redirect('/llp')
-    })
-
-  }
-
-})
 
 
 
