@@ -3,6 +3,12 @@ var router = express.Router();
 const { doSignup, doLogin } = require('../helpers/authHelpers')
 const { createService, getAmount, addAddons, addAddress } = require('../helpers/userHelpers')
 
+const multer = require('multer')
+
+const fs = require('fs');
+const path = require('path');
+const child_process =require('child_process')
+
 const verifylogin = (req, res, next) => {
   console.log(req.session.userDetails);
   if (req.session.userDetails) {
@@ -106,14 +112,14 @@ router.get('/pf', function (req, res) {
 });
 
 
-router.get('/addservice/:service', verifylogin, (req, res) => { 
+router.get('/addservice/:service', verifylogin, (req, res) => {
 
   let service = req.params.service
   let user = req.session.userDetails
 
   if (user) {
 
-    createService(user,service).then((data) => {
+    createService(user, service).then((data) => {
       res.redirect(`/form/${service}/${data}`)
 
     }).catch((err) => {
@@ -125,16 +131,19 @@ router.get('/addservice/:service', verifylogin, (req, res) => {
 
 router.get('/form/:service/:id', function (req, res) {
   let id = req.params.id;
-  getAmount(id).then((Totel) => {
-    res.render('user/LLPform', { id,Totel });
+  getAmount(id).then((service) => {
+    res.render('user/LLPform', { id, Totel:service[0].total });
   })
 });
 
-router.get('/addon/:id/:addon', function (req, res) {
+router.post('/addon/:id/:addon', function (req, res) {
   let id = req.params.id;
   let addon = req.params.addon;
   console.log(id, addon);
-  addAddons(id, addon).then(() => {
+  addAddons(id, addon).then((data) => {
+    getAmount(id).then((service) => {
+      res.json({ id, Totel:service[0].total });
+    })
 
   }).catch(() => {
 
@@ -173,9 +182,54 @@ router.get('/checkout', verifylogin, function (req, res) {
 
 
 
-router.get('/form' , (req, res) => {
+router.get('/form', (req, res) => {
   res.render('user/form')
 })
+router.get('/form2', (req, res) => {
+  res.render('user/form2')
+})
 
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+
+    fs.mkdir(path.join(__dirname, `../public/uploads/${req.params.id}`), (err) => {
+      if (err) {
+          return console.error(err);
+      }
+      console.log('Directory created successfully!');
+  }) 
+    cb(null, `public/uploads/${req.params.id}`)
+  },
+  filename: function (req, file, cb) {
+
+    var filename = file.originalname;
+    var fileExtension = filename.split(".")[1];
+    cb(null, filename);
+  }
+});
+
+const upload = multer({ storage: storage })
+
+
+
+
+
+const cpUpload = upload.fields([{ name: 'photo', maxCount: 1 }, { name: 'id' }, { name: 'proof' }])
+
+router.post('/form/:id', cpUpload, function (req, res, next) {
+  console.log(req.body);
+  
+  console.log(req.files);
+  res.json({})
+
+})
+
+router.get("/files/downloads/:id", (req, res) => {
+  console.log("Dfasdf");
+  let location =path.join(__dirname, `../public/uploads/${req.params.id}/download.jpg`)
+
+  console.log(location);
+  res.download(location);
+});
 
 module.exports = router;

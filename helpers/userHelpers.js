@@ -72,15 +72,18 @@ module.exports = {
     },
 
 
-    addAddons: (id, addon) => {
+    addAddons: (id, addonname) => {
+        console.log(id,addonname);
         return new Promise(async (resolve, reject) => {
-            let addon = await db.get().collection(ADDON_COLLECTIONS).findOne({ name:addon })
+            let addon = await db.get().collection(ADDON_COLLECTIONS).findOne({ name:addonname })
+            console.log(addon);
             if (addon !== null) {
                 await db.get().collection(SERVICE_COLLECTIONS).updateOne(
                     { _id: ObjectID(id) },
                     { $push: { "services": addon } }
                 ).then((result) => {
-                    console.log(result);
+                   resolve(result)
+                    
                 })
             }
         })

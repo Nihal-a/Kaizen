@@ -3,5 +3,5 @@ module.exports={
     USER_COLLECTIONS:'user',
     SERVICE_COLLECTIONS:"service",
     PRODUCTS_COLLECTIONS:"Products",
-    ADDON_COLLECTIONS:"Addon"
+    ADDON_COLLECTIONS:"Addons"
 }

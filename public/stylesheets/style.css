@@ -5,11 +5,14 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-
+html{
+  width: 100%;
+}
 body {
   width: 100%;
   font-family: "Montserrat", sans-serif;
 }
+
 
 .row {
   margin: 0;
@@ -65,6 +68,10 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+.invalid{
+  background-color: rgba(252, 99, 99, 0.411) !important;
+  border: 1px solid red !important;
 }
 
 .greenBtn {
@@ -651,6 +658,9 @@ body {
 .regTitle{
   font-size: 18px;
 }
+.din{
+  display: none;
+}
 .regTextArea{
   border: 0;
   outline: 0;
@@ -680,6 +690,7 @@ body {
   position: absolute;
   inset: 0;
   opacity: 0;
+  width: 100%;
 }
 .adddDealerBtn{
   outline: none;
