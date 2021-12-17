@@ -59,6 +59,8 @@ body {
 }
 
 .blackbtn {
+  text-decoration: none;
+  font-weight: bold;
   background-color: transparent;
   color: #1c1d1c;
   border: 2px solid #1c1d1c;
@@ -72,6 +74,10 @@ body {
 .invalid{
   background-color: rgba(252, 99, 99, 0.411) !important;
   border: 1px solid red !important;
+}
+
+.displaynone{
+  display: none;
 }
 
 .greenBtn {
@@ -146,11 +152,13 @@ body {
 }
 
 .header {
-  background-color: #1c1d1c;
+  background-color: #fff000;
+  background-image: linear-gradient(315deg, #fff000 0%, #ed008c 74%);
+  
 }
 
 .header .navbar {
-  background-color: #1c1d1c;
+  background-color: transparent;
 }
 
 .header .navbar .navbar-brand {
@@ -219,11 +227,16 @@ body {
 
 .service .card {
   border: 2px solid #fdc66f;
+  background-color: #ef5734;
+  background-image: linear-gradient(315deg, #ef5734 0%, #ffcc2f 74%);
 }
 
 .service .card h5 {
   font-weight: bold;
+  color: #fff;
+
 }
+
 
 .service .card .price {
   display: -webkit-box;
@@ -238,12 +251,12 @@ body {
 
 .service .card .price p {
   font-weight: bold;
-  color: #878787;
+  color: #1c1d1c;
 }
 
 .service .card .price span {
   font-weight: bold;
-  color: #fdc66f;
+  color: #fff;
 }
 
 .about {
@@ -698,5 +711,79 @@ body {
   background-color: #5BD685;
   color: #fff;
 
+}
+.formPrice{
+  font-weight: bold;
+}
+.formPrice span{
+  color: #fdc66f;
+}
+
+.ourServices{
+  background-image: url("../images/istockphoto-1311598658-170667a.jpg");
+  background-color: #3dadff;
+  /* Full height */
+  height: 100%;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+}
+.ourServices .parallax{
+  background-color: #03052230;
+  backdrop-filter: blur(5px);  
+
+}
+.ourServices h2{
+  text-align: center;
+  color: #fdc66f;
+  font-weight: bold;
+}
+
+.ourServices .card{
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+
+}
+@media only screen and (max-device-width: 1200px) {
+  .ourServices .card{
+    flex-direction: column;
+  
+  }
+  .ourServices .col-md-8 ,.ourServices .col-md-4 {
+    width: 100%;
+  
+  }
+ 
+}
+.ourServices .card .col-md-8{
+  padding: 10px;
+  border-radius: 20px;
+  color: #1c1d1c;
+  
+
+}
+
+.ourServices .card .yellobtn{
+  padding:  10px ;
+}
+
+.ourServices .card .price{
+  margin-top: 10px;
+  display: block;
+  width: 200px;
+  background: linear-gradient(321.29deg,rgba(31,38,135,.53) -58.68%,#3dadff 117.86%),#3dadff;
+  padding: 10px  20px;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
 }
 /* Registration form */

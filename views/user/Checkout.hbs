@@ -38,76 +38,74 @@
     </Header>
     <section class="CheckoutPage">
         <div class="container">
-                <h2>Checkout</h2>
         </div>
         <div class="header">
-            <h4>ABC COMPANY</h4>
-            <h5>Private Limited Company</h5>
+            <h2>Checkout</h2>
+
         </div>
         <div class="container mt-5">
             <div class="col-lg-8 d-flex justify-content-center mx-auto">
 
-                <form action="">
+                <form action="/checkout/{{id}}" method="post" >
                     <div class="row">
                         <div class="col-lg-6">
                             <Label>Name</Label>
                             <div class="input">
-                                <input type="text">
+                                <input type="text" name="name">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <Label>Phone</Label>
                             <div class="input">
-                                <input type="text">
+                                <input type="text" name="phone">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <Label>Email</Label>
                             <div class="input">
-                                <input type="text">
+                                <input type="text" name="email">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <Label>Whatsapp Number</Label>
                             <div class="input">
-                                <input type="text">
+                                <input type="text" name="whatsapp">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <Label>Address line 1</Label>
                             <div class="input">
-                                <input type="text">
+                                <input type="text" name="address1">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <Label>Address line 2</Label>
                             <div class="input">
-                                <input type="text">
+                                <input type="text" name="address2">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <Label>City</Label>
                             <div class="input">
-                                <input type="text">
+                                <input type="text" name="city">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <Label>State</Label>
                             <div class="input">
-                                <input type="text">
+                                <input type="text" name="state">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <Label>PinCode</Label>
                             <div class="input">
-                                <input type="text">
+                                <input type="text" name="pincode">
                             </div>
                         </div>
                         
                     </div>
                     <div class="btns mt-4">
-                        <button class="grayBtn">Back</button>
-                        <Button class="greenBtn">Confirm Payment Rs:19999</Button>
+                        <Button class="greenBtn">Confirm Payment Rs:{{Totel}}</Button>
                     </div>
                     
                 </form>

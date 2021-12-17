@@ -12,7 +12,7 @@ module.exports = {
         return new Promise(async (resolve, reject) => {
             let product = await db.get().collection(PRODUCTS_COLLECTIONS).findOne({ name: service })
 
-            db.get().collection(SERVICE_COLLECTIONS).insertOne({ userid: user, services: [product] }).then((result) => {
+            db.get().collection(SERVICE_COLLECTIONS).insertOne({ userid: user._id, services: [product],data:null,payment:null,address:null }).then((result) => {
                 console.log(result.insertedId);
                 resolve(result.insertedId)
 
@@ -24,6 +24,7 @@ module.exports = {
 
 
     },
+
     getAmount: (id) => {
         try {
 
@@ -87,6 +88,44 @@ module.exports = {
                 })
             }
         })
-    }
+    },
+
+    saveData: (id, data) => {
+        console.log(">>>>>>>>>>",data,id);
+        return new Promise(async (resolve, reject) => {
+         await db.get().collection(SERVICE_COLLECTIONS).updateOne({ _id:ObjectID(id) },{
+                $set:{
+                    data:data
+                }
+         }).then((result)=>{
+             resolve(result)
+
+         }).catch((err)=>{
+             reject(err)
+
+         })
+           
+        })
+    },
+
+    checkout: (id, data) => {
+        console.log(">>>>>>>>>>",data,id);
+        return new Promise(async (resolve, reject) => {
+         await db.get().collection(SERVICE_COLLECTIONS).updateOne({ _id:ObjectID(id) },{
+                $set:{
+                    address:data
+                }
+         }).then((result)=>{
+             console.log(result);
+             resolve(result)
+
+         }).catch((err)=>{
+             console.log(err);
+             reject(err)
+
+         })
+           
+        })
+    },
 
 }

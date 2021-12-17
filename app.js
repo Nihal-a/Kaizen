@@ -8,6 +8,13 @@ const db = require('./config/connection');
 var adminRouter = require('./routes/admin');
 var usersRouter = require('./routes/users');
 const session =require('express-session');
+require('dotenv').config()
+
+const MongoDBStore = require('connect-mongodb-session')(session);
+const store = new MongoDBStore({
+  uri: process.env.MONGODB,
+  collection: 'Sessions'
+});
 
 
 
@@ -22,7 +29,6 @@ app.set('view engine', 'hbs');
 app.engine('hbs',hbs({extname:'hbs',defaultLayout:'layout',layoutsDir:__dirname+'/views/layout/',partialsDir:__dirname+'/views/partials/'}))
 
 app.use(logger('dev'));
-require('dotenv').config()
 
 
 
@@ -34,8 +40,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
   secret: 'secret',
-  resave: false,
-  saveUninitialized: true,
+  store: store,
+  resave: true,
+  saveUninitialized: true, 
+  cookie: {
+    maxAge: 3600000 
+  }
 }))
 
 db.connect((err)=>{

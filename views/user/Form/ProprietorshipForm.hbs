@@ -37,56 +37,34 @@
     </nav>
 </Header>
 <section>
-    <form id="form" action="/form/dfadfasd" enctype="multipart/form-data" method="post">
-
-        <div class="container mt-5" id="BusinessDetails">
+    <form action="" id="businessDetails">
+        <div class="container mt-5">
             <h4>Business Details.</h4>
-            <span id="price">{{Totel}}</span>
             <div class="business-wrapper  p-5">
                 <div class="row">
                     <h5 class="regTitle">Business Name Suggetion : </h5>
-                    <div class="col-lg-3">
+                    <div class="col-lg-6">
                         <div class="d-flex flex-column">
-                            <label for="" class="regLabel">Name 1</label>
+                            <label for="" class="regLabel">Name </label>
                             <input type="text" name="bname" id="" class="regInput name">
                         </div>
                         <span></span>
                     </div>
-                    <div class="col-lg-3">
-                        <div class="d-flex flex-column">
-                            <label for="" class="regLabel">Name 2</label>
-                            <input type="text" name="bname2" id="" class="regInput name">
-                        </div>
-
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="d-flex flex-column">
-                            <label for="" class="regLabel">Name 3</label>
-                            <input type="text" name="bname3" id="" class="regInput name">
-                        </div>
-
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="d-flex flex-column">
-                            <label for="" class="regLabel">Name 4</label>
-                            <input type="text" name="bname4" id="" class="regInput name">
-                        </div>
-
-                    </div>
+                    
                 </div>
                 <div class=" p-3">
                     <div class="d-flex flex-column">
                         <label for="" class="regLabel">About the Business : </label>
                         <textarea class="regTextArea mt-2" name="activity" id="" cols="30" rows="5"></textarea>
                     </div>
-
+                    
                 </div>
             </div>
         </div>
+    </form>
 
-
-
-        <div class="container mt-5" id="director1">
+    <form action="" id="director1" enctype="multipart/form-data" method="post">
+        <div class="container mt-5">
             <h4>Director 1.</h4>
             <div class="director-wrapper  ">
                 <div class="row">
@@ -139,8 +117,7 @@
                             <img src="/Assets/profile.svg" alt="" class="avatarImg">
                             <div class="uploadbtnCvr">
                                 <span>Upload Photo</span>
-                                <input type="file" src="" name="photo" id="photo" class="uploadbtn photofile"
-                                    accept="image/*">
+                                <input type="file" src="" name="photo" id="photo" class="uploadbtn photofile" accept="image/*">
                             </div>
                         </div>
                     </div>
@@ -176,7 +153,7 @@
                             <div class="col-lg-6 mt-3">
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Upload Identification Proof</label>
-                                    <input class="form-control" name="proof" type="file" id="formFile">
+                                    <input class="form-control" type="file" id="formFile">
                                 </div>
                             </div>
                         </div>
@@ -184,8 +161,9 @@
                 </div>
             </div>
         </div>
+    </form>
 
-
+    <form action="" id="director2">
         <div class="container mt-5">
             <h4>Director 2.</h4>
             <div class="director-wrapper  ">
@@ -237,7 +215,7 @@
                             <img src="/Assets/profile.svg" alt="" class="avatarImg">
                             <div class="uploadbtnCvr">
                                 <span>Upload Photo</span>
-                                <input type="file" name="photo" id="" class="photos uploadbtn">
+                                <input type="file" name="dir2photo" id="" class="uploadbtn">
                             </div>
                         </div>
                     </div>
@@ -257,7 +235,7 @@
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Upload Identification Proof</label>
-                                    <input class="form-control" name="id" type="file" id="formFile">
+                                    <input class="form-control" name="dir2id" type="file" id="formFile">
                                 </div>
                             </div>
                             <div class="col-lg-6 mt-3">
@@ -274,7 +252,7 @@
                             <div class="col-lg-6 mt-3">
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Upload Identification Proof</label>
-                                    <input class="form-control" name="proof" type="file" id="formFile">
+                                    <input class="form-control" name="dir2proof" type="file" id="formFile">
                                 </div>
                             </div>
                         </div>
@@ -282,16 +260,11 @@
                 </div>
             </div>
         </div>
-
-
-        <div class="" id="newPartners">
-
-        </div>
-
-
-
-        <button id="">submit</button>
     </form>
+
+    <div class="" id="newPartners">
+
+    </div>
 
     <form action="" id="addPartner" style="display: none;">
         <div class="container  mt-5">
@@ -331,13 +304,12 @@
     <div class="container d-flex justify-content-end mt-3 mb-2">
         <button id="addPartnerBtn" class="adddDealerBtn p-2">Add Partner</button>
     </div>
-    <input type="text" name="" id="id" value={{id}}>
 
+    <button onclick="submitForm()">submit</button>
 
 
 
 </section>
-
 
 <script>
     var addPartner = document.getElementById('addPartner')
@@ -346,9 +318,6 @@
     var newPartners = document.getElementById('newPartners')
     const uploadbtns = document.querySelectorAll('.uploadbtn')
     const checkboxs = document.querySelectorAll('.checkbox')
-    const submit = document.getElementById('submit')
-    const id=document.getElementById('id').value
-    console.log(id)
 
 
     uploadbtns.forEach(function (uploadbtn) {
@@ -381,13 +350,111 @@
     });
 
 
+
+
+
+
+
+
     addPartnerBtn.addEventListener("click", () => {
         addPartner.style.display = 'block'
     })
+
+
+
+    sumbitPartnerBtn.addEventListener("click", (e) => {
+        e.preventDefault()
+        var partnerData = $('#addPartner').serializeArray().reduce(function (obj, item) {
+            obj[item.name] = item.value;
+            return obj;
+        }, {});
+
+        var div = document.createElement("DIV");
+        var x = newPartners.childElementCount;
+
+        if (partnerData.din == 'true' && partnerData.dsign == 'true') {
+
+            div.innerHTML = withDinAndDigital(x)
+
+        } else if (partnerData.din == 'true' && partnerData.dsign == undefined) {
+
+            div.innerHTML = withDinAndwithoutDigital(x)
+
+        } else {
+            div.innerHTML = withoutDinAndwithoutDigital(x)
+        }
+
+        obj = null
+        addPartner.style.display = 'none'
+        newPartners.append(div)
+
+
+
+        const uploadbtns = document.querySelectorAll('.uploadbtn')
+        uploadbtns.forEach(function (uploadbtn) {
+            uploadbtn.addEventListener('change', (event) => {
+                const src = URL.createObjectURL(event.target.files[0]);
+
+                let formCheck = uploadbtn.parentElement
+                let formCheckParent = formCheck.parentElement
+                let avatarImg = formCheckParent.querySelector('.avatarImg')
+                let photo = formCheckParent.querySelector('.photo')
+                console.log(formCheckParent)
+                uploadbtn.value = src
+                photo.value = src
+
+
+            })
+        });
+
+
+
+
+    })
+
+
+
+    const submitForm = (e) => {
+
+
+        var businessDetails = $('#businessDetails').serializeArray().reduce(function (obj, item) {
+            obj[item.name] = item.value;
+            return obj;
+        }, {});
+       
+
+        var director1 = $('#director1').serializeArray().reduce(function (director1, item) {
+            director1[item.name] = item.value;
+            return director1;
+        }, {});
+        var files = $('#director1').prop("files")
+
+        console.log(files)
+
+        let director1form=document.getElementById('#director1')
+        let photo=director1form.getElementsByClassName('photofile')
+ 
+        
+     
+
+
+        var director2 = $('#director2').serializeArray().reduce(function (director2, item) {
+            director2[item.name] = item.value;
+            return director2;
+        }, {});
+        formData.append("director2", director2)
+        data.append(director2)
+
+        console.log(data)
+
+
+    }
+
+
     const withDinAndDigital = (length) => {
         return (
             `
- 
+    <form action="">
         <div class="container mt-5">
             <h4>Partner ${length + 1}</h4>
             <div class="director-wrapper  ">
@@ -436,7 +503,7 @@
                             <img src="/Assets/profile.svg" alt="" class="avatarImg">
                             <div class="uploadbtnCvr">
                                 <span>Upload Photo</span>
-                                <input type="file" name="photo" id="" class="uploadbtn">
+                                <input type="file" name="" id="" class="uploadbtn">
                             </div>
                         </div>
                     </div>
@@ -480,7 +547,7 @@
                 </div>
             </div>
         </div>
-   
+    </form>
     `
 
 
@@ -678,137 +745,5 @@
         )
     }
 
-
-
-
-    sumbitPartnerBtn.addEventListener("click", (e) => {
-        e.preventDefault()
-        var partnerData = $('#addPartner').serializeArray().reduce(function (obj, item) {
-            obj[item.name] = item.value;
-            return obj;
-        }, {});
-
-        var div = document.createElement("DIV");
-        var x = newPartners.childElementCount;
-        let addon=null
-        if (partnerData.din == 'true' && partnerData.dsign == 'true') {
-            addon='LLPTT'
-            div.innerHTML = withDinAndDigital(x)
-
-        } else if (partnerData.din == 'true' && partnerData.dsign == undefined) {
-            addon='LLPTF'
-            div.innerHTML = withDinAndwithoutDigital(x)
-
-        } else {
-            addon='LLPFF'
-            div.innerHTML = withoutDinAndwithoutDigital(x)
-        }
-
-        console.log("ajax")
-        $.ajax({
-            url: `/addon/${id}/${addon}`,
-            data: {addon:addon},
-            method: "POST",
-            success: function (response) {
-                console.log(response)
-                document.getElementById('price').innerHTML=response.Totel
-                alert("Form submitted successfully")
-            },
-            error: function (err) {
-                alert("Something Error")
-
-            }
-        })
-
-
-        obj = null
-        addPartner.style.display = 'none'
-        newPartners.append(div)
-
-
-
-        const uploadbtns = document.querySelectorAll('.uploadbtn')
-        uploadbtns.forEach(function (uploadbtn) {
-            uploadbtn.addEventListener('change', (event) => {
-                const src = URL.createObjectURL(event.target.files[0]);
-
-                let formCheck = uploadbtn.parentElement
-                let formCheckParent = formCheck.parentElement
-                let avatarImg = formCheckParent.querySelector('.avatarImg')
-                let photo = formCheckParent.querySelector('.photo')
-                console.log(formCheckParent)
-                uploadbtn.value = src
-                photo.value = src
-
-
-            })
-        });
-
-
-
-
-    })
-
-    const validation = (tab) => {
-        let valid = true
-        x = document.getElementById(tab);
-        y = x.getElementsByTagName('input')
-        let obj = {}
-
-        for (i = 0; i < y.length; i++) {
-            if ([y[i].name] == "photo") {
-                console.log("photo")
-                let file = y[i].files[0]
-                file.name = "dasdasd.jpg"
-                console.log(file.name)
-
-
-            } else {
-                obj[y[i].name] = y[i].value;
-
-            }
-
-            if (y[i].value == "") {
-                console.log(">>>>>>>>>>>>>>>>>>>>>>>", y[i].name)
-                y[i].classList.add("invalid");
-                y[i].className += " invalid";
-            } else {
-                y[i].classList.remove("invalid");
-
-
-            }
-        }
-        console.log(obj)
-        return { valid, obj }
-    }
-
-    submit.addEventListener('click', () => {
-        let BusinessDetailsvalidate = validation('BusinessDetails')
-        let director1validate = validation('director1')
-        let form = document.getElementById('form')
-
-        $.ajax({
-            url: "/form/65496854",
-            enctype: 'multipart/form-data',
-            data: form.serializeArray(),
-            method: "POST",
-            async: true,
-            success: function (response) {
-                alert("Form submitted successfully")
-                window.location.reload()
-            },
-            error: function (err) {
-                alert("Something Error")
-
-            }
-        })
-
-    })
-
-
-
-
-
-
-
+  
 </script>
