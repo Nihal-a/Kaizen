@@ -152,8 +152,7 @@ body {
 }
 
 .header {
-  background-color: #fff000;
-  background-image: linear-gradient(315deg, #fff000 0%, #ed008c 74%);
+  background-color: #1c1d1c;
   
 }
 
@@ -223,17 +222,41 @@ body {
 .service h4 {
   text-align: center;
   font-weight: bold;
+  color: #ffdf28af;
 }
 
 .service .card {
-  border: 2px solid #fdc66f;
-  background-color: #ef5734;
-  background-image: linear-gradient(315deg, #ef5734 0%, #ffcc2f 74%);
+  
+  color: #ff9d00;
+  border-radius: 10px;
+  border: none;
+  
+  transition:  all .2s ease ;
+  
 }
+.service .card:hover{
+  transform: translateY(-20px);
+  background-color: #ff9d00;
+  color: #fff;
 
+}
+.service .card:hover .side{
+  background-color: #fff;
+}
+.service .card:hover h5{
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.service .card:hover .price span{
+  color: #fff;
+}
+.service .card:hover .price p{
+  color: #fff;
+}
 .service .card h5 {
   font-weight: bold;
-  color: #fff;
+  color: #ff9d00;
 
 }
 
@@ -251,12 +274,20 @@ body {
 
 .service .card .price p {
   font-weight: bold;
-  color: #1c1d1c;
+  color: #ff9d00;
 }
 
 .service .card .price span {
   font-weight: bold;
-  color: #fff;
+  color: #ff9d00;
+}
+.service .side{
+  width: 50px;
+  height: 50px;
+  background-color: #ff9d00;
+  border-radius: 10px 0px 10px 0px;
+  margin-left: auto;
+
 }
 
 .about {
@@ -702,8 +733,12 @@ body {
 .uploadbtn{
   position: absolute;
   inset: 0;
-  opacity: 0;
+  opacity: 0; 
   width: 100%;
+}
+.uploadbtn.invalid{
+  background-color: rgba(252, 99, 99, 0.411) !important;
+  border: 1px solid red !important;
 }
 .adddDealerBtn{
   outline: none;
@@ -749,9 +784,14 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-radius: 20px;
-
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(5px);
+ 
+    border-radius: 20px;
 }
+
+
+
 @media only screen and (max-device-width: 1200px) {
   .ourServices .card{
     flex-direction: column;
@@ -766,7 +806,7 @@ body {
 .ourServices .card .col-md-8{
   padding: 10px;
   border-radius: 20px;
-  color: #1c1d1c;
+  color: #ffffff;
   
 
 }

@@ -2,8 +2,9 @@ const db = require('../config/connection');
 const collections = require('../config/collections');
 const { USER_COLLECTIONS, SERVICE_COLLECTIONS, PRODUCTS_COLLECTIONS, ADDON_COLLECTIONS } = require('../config/collections');
 const bcrypt = require('bcrypt');
-const { ObjectID } = require('mongodb');
+const {  ObjectId } = require('mongodb');
 const { response } = require('express');
+
 
 
 module.exports = {
@@ -32,7 +33,7 @@ module.exports = {
             return new Promise(async (resolve, reject) => {
                 let Totel = await db.get().collection(SERVICE_COLLECTIONS).aggregate([
                     {
-                        $match: { _id: ObjectID(id) },
+                        $match: { _id: ObjectId(id) },
                     },
                     {
                         $unwind: "$services",
@@ -63,7 +64,7 @@ module.exports = {
             let addon = await db.get().collection(ADDON_COLLECTIONS).findOne({ name: "VAddress" })
             if (addon !== null) {
                 await db.get().collection(SERVICE_COLLECTIONS).updateOne(
-                    { _id: ObjectID(id) },
+                    { _id: ObjectId(id) },
                     { $push: { "services": addon } }
                 ).then((result) => {
                     console.log(result);
@@ -80,7 +81,7 @@ module.exports = {
             console.log(addon);
             if (addon !== null) {
                 await db.get().collection(SERVICE_COLLECTIONS).updateOne(
-                    { _id: ObjectID(id) },
+                    { _id: ObjectId(id) },
                     { $push: { "services": addon } }
                 ).then((result) => {
                    resolve(result)
@@ -93,7 +94,7 @@ module.exports = {
     saveData: (id, data) => {
         console.log(">>>>>>>>>>",data,id);
         return new Promise(async (resolve, reject) => {
-         await db.get().collection(SERVICE_COLLECTIONS).updateOne({ _id:ObjectID(id) },{
+         await db.get().collection(SERVICE_COLLECTIONS).updateOne({ _id:ObjectId(id) },{
                 $set:{
                     data:data
                 }
@@ -111,7 +112,7 @@ module.exports = {
     checkout: (id, data) => {
         console.log(">>>>>>>>>>",data,id);
         return new Promise(async (resolve, reject) => {
-         await db.get().collection(SERVICE_COLLECTIONS).updateOne({ _id:ObjectID(id) },{
+         await db.get().collection(SERVICE_COLLECTIONS).updateOne({ _id:ObjectId(id) },{
                 $set:{
                     address:data
                 }

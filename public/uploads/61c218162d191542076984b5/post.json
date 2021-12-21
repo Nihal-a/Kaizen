@@ -1,0 +1,216 @@
+[{
+  "_id": {
+    "$oid": "61af5371b2b9dd6869035ab2"
+  },
+  "desc": "first post",
+  "files": [
+    "https://socialmedia-posts.s3.amazonaws.com/posts/Screenshot (4) - Copy - Copy.png"
+  ],
+  "save": null,
+  "Accessibility": "PUBLIC",
+  "likes": [],
+  "comment": [],
+  "userId": {
+    "$oid": "61ad8641ad7da565715856ef"
+  },
+  "status": "active",
+  "report": 0,
+  "postedDate": "2021-12-07T17:58:33+05:30"
+},{
+  "_id": {
+    "$oid": "61af540ab2b9dd6869035ab3"
+  },
+  "desc": "fdnflkadjfakdj",
+  "files": null,
+  "save": null,
+  "Accessibility": "PUBLIC",
+  "likes": [],
+  "comment": [],
+  "userId": {
+    "$oid": "61ad8641ad7da565715856ef"
+  },
+  "status": "active",
+  "report": 0,
+  "postedDate": "2021-12-07T18:01:06+05:30"
+},{
+  "_id": {
+    "$oid": "61af5449b2b9dd6869035ab4"
+  },
+  "desc": "kljhgj",
+  "files": null,
+  "save": null,
+  "Accessibility": "PUBLIC",
+  "likes": [],
+  "comment": [],
+  "userId": {
+    "$oid": "61ad8641ad7da565715856ef"
+  },
+  "status": "active",
+  "report": 0,
+  "postedDate": "2021-12-07T18:02:09+05:30"
+},{
+  "_id": {
+    "$oid": "61af548cb2b9dd6869035ab5"
+  },
+  "desc": "",
+  "files": [
+    "https://socialmedia-posts.s3.amazonaws.com/posts/Screenshot (4) - Copy - Copy.png"
+  ],
+  "save": null,
+  "Accessibility": "PUBLIC",
+  "likes": [],
+  "comment": [],
+  "userId": {
+    "$oid": "61ad8641ad7da565715856ef"
+  },
+  "status": "active",
+  "report": 0,
+  "postedDate": "2021-12-07T18:03:16+05:30"
+},{
+  "_id": {
+    "$oid": "61af56e4b2b9dd6869035ab6"
+  },
+  "desc": "",
+  "files": [
+    "https://socialmedia-posts.s3.amazonaws.com/posts/Screenshot (4) - Copy - Copy.png",
+    "https://socialmedia-posts.s3.amazonaws.com/posts/Screenshot (3).png"
+  ],
+  "save": null,
+  "Accessibility": "PUBLIC",
+  "likes": [],
+  "comment": [],
+  "userId": {
+    "$oid": "61ad8641ad7da565715856ef"
+  },
+  "status": "active",
+  "report": 0,
+  "postedDate": "2021-12-07T18:13:16+05:30"
+},{
+  "_id": {
+    "$oid": "61af7d8cda9af6a0b1c8eef2"
+  },
+  "desc": "new post now\n",
+  "files": [
+    "https://socialmedia-posts.s3.amazonaws.com/posts/Screenshot (3).png"
+  ],
+  "save": null,
+  "Accessibility": "PUBLIC",
+  "likes": [],
+  "comment": [],
+  "userId": "61ad8641ad7da565715856ef",
+  "status": "active",
+  "report": 0,
+  "postedDate": "2021-12-07T20:58:12+05:30"
+},{
+  "_id": {
+    "$oid": "61af7dedda9af6a0b1c8eef3"
+  },
+  "desc": "hai its ameers post",
+  "files": [
+    "https://socialmedia-posts.s3.amazonaws.com/posts/Screenshot (44).png"
+  ],
+  "save": null,
+  "Accessibility": "PUBLIC",
+  "likes": [],
+  "comment": [],
+  "userId": "61ad8641ad7da565715856ef",
+  "status": "active",
+  "report": 0,
+  "postedDate": "2021-12-07T20:59:49+05:30"
+},{
+  "_id": {
+    "$oid": "61af7f04a2fe3d518d163be0"
+  },
+  "desc": "hai its first post",
+  "files": null,
+  "save": null,
+  "Accessibility": "PUBLIC",
+  "likes": [],
+  "comment": [],
+  "userId": {
+    "$oid": "61ad87b3ad7da565715856f2"
+  },
+  "status": "active",
+  "report": 0,
+  "postedDate": "2021-12-07T21:04:28+05:30"
+},{
+  "_id": {
+    "$oid": "61afa6d447dc5168a1388633"
+  },
+  "desc": "hellooooo",
+  "files": null,
+  "save": null,
+  "Accessibility": "PUBLIC",
+  "likes": [],
+  "comment": [],
+  "userId": {
+    "$oid": "61ad8641ad7da565715856ef"
+  },
+  "status": "active",
+  "report": 0,
+  "postedDate": "2021-12-07T23:54:20+05:30"
+},{
+  "_id": {
+    "$oid": "61afb7c247dc5168a1388635"
+  },
+  "desc": "this is kans",
+  "files": null,
+  "save": null,
+  "Accessibility": "PUBLIC",
+  "likes": [],
+  "comment": [],
+  "userId": {
+    "$oid": "61ad8641ad7da565715856ef"
+  },
+  "status": "active",
+  "report": 0,
+  "postedDate": "2021-12-08T01:06:34+05:30"
+},{
+  "_id": {
+    "$oid": "61afb8c947dc5168a1388636"
+  },
+  "desc": "kans",
+  "files": null,
+  "save": null,
+  "Accessibility": "PUBLIC",
+  "likes": [],
+  "comment": [],
+  "userId": {
+    "$oid": "61afb72647dc5168a1388634"
+  },
+  "status": "active",
+  "report": 0,
+  "postedDate": "2021-12-08T01:10:57+05:30"
+},{
+  "_id": {
+    "$oid": "61afca7b5ac33c253f156047"
+  },
+  "desc": "this is abhinav",
+  "files": null,
+  "save": null,
+  "Accessibility": "PUBLIC",
+  "likes": [],
+  "comment": [],
+  "userId": {
+    "$oid": "61afb72647dc5168a1388634"
+  },
+  "status": "active",
+  "report": 0,
+  "postedDate": "2021-12-08T02:26:27+05:30"
+},{
+  "_id": {
+    "$oid": "61b17efa675da723da26d5c0"
+  },
+  "desc": "kljkjhgdfsfghjlk",
+  "files": null,
+  "save": null,
+  "Accessibility": "PUBLIC",
+  "likes": [],
+  "comment": [],
+  "userId": {
+    "$oid": "61ad8641ad7da565715856ef"
+  },
+  "status": "active",
+  "report": 0,
+  "postedDate": "2021-12-09T09:28:50+05:30"
+}]

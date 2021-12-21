@@ -37,8 +37,10 @@
     </nav>
 </Header>
 <section>
-    <form action="" id="businessDetails">
-        <div class="container mt-5">
+
+
+    <form enctype="multipart/form-data" method="post" id="demoForm">
+        <div class="container mt-5" id="businessDetails">
             <h4>Business Details.</h4>
             <div class="business-wrapper  p-5">
                 <div class="row">
@@ -46,25 +48,22 @@
                     <div class="col-lg-6">
                         <div class="d-flex flex-column">
                             <label for="" class="regLabel">Name </label>
-                            <input type="text" name="bname" id="" class="regInput name">
+                            <input type="text" name="bname" id="" class="regInput name input">
                         </div>
                         <span></span>
                     </div>
-                    
+
                 </div>
                 <div class=" p-3">
                     <div class="d-flex flex-column">
                         <label for="" class="regLabel">About the Business : </label>
-                        <textarea class="regTextArea mt-2" name="activity" id="" cols="30" rows="5"></textarea>
+                        <textarea class="regTextArea mt-2 input" name="activity" id="" cols="30" rows="5"></textarea>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
-    </form>
-
-    <form action="" id="director1" enctype="multipart/form-data" method="post">
-        <div class="container mt-5">
+        <div class="container mt-5" id="director1">
             <h4>Director 1.</h4>
             <div class="director-wrapper  ">
                 <div class="row">
@@ -72,44 +71,29 @@
                         <div class="col-lg-12 mt-1">
                             <div class="d-flex flex-column">
                                 <label for="" class="regLabel">Director Name : </label>
-                                <input type="text" name="name" id="" class="regInput">
+                                <input type="text" name="name" id="" class="regInput  input">
                             </div>
                         </div>
                         <div class="col-lg-12 mt-3">
                             <div class="d-flex flex-column">
                                 <label for="" class="regLabel">Phone Number : </label>
-                                <input type="text" name="phone" id="" class="regInput">
+                                <input type="text" name="phone" id="" class="regInput input">
                             </div>
                         </div>
                         <div class="col-lg-12 mt-3">
                             <div class="d-flex flex-column">
                                 <label for="" class="regLabel">Email : </label>
-                                <input type="text" name="email" id="" class="regInput">
+                                <input type="text" name="email" id="" class="regInput input">
                             </div>
                         </div>
                         <div class="col-lg-12 mt-3">
                             <div class="d-flex flex-column">
                                 <label for="" class="regLabel">PAN Number : </label>
-                                <input type="text" name="pan" id="" class="regInput">
+                                <input type="text" name="pan" id="" class="regInput input">
                             </div>
                         </div>
 
-                        <div class="col-lg-12 mt-3">
-                            <div class="form-check">
-                                <input class="form-check-input checkbox" type="checkbox" name="dinCheck" value=""
-                                    id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    Have a DIN number?
-                                </label>
-                            </div>
-                            <div class="din">
 
-                                <div class="  d-flex flex-column mt-3 ">
-                                    <label for="" class="regLabel">DIN Number : </label>
-                                    <input type="text" name="din" id="" class="regInput">
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div class="col-lg-6 p-5 upload-wrapper">
                         <div class="d-flex flex-column align-items-center">
@@ -117,7 +101,8 @@
                             <img src="/Assets/profile.svg" alt="" class="avatarImg">
                             <div class="uploadbtnCvr">
                                 <span>Upload Photo</span>
-                                <input type="file" src="" name="photo" id="photo" class="uploadbtn photofile" accept="image/*">
+                                <input type="file" src="" name="photo" id="photo" class="uploadbtn photofile files"
+                                    accept="image/*">
                             </div>
                         </div>
                     </div>
@@ -127,8 +112,8 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <label for="formFile" class="form-label">Identification Proof</label>
-                                <select class="form-select" name="proof" aria-label="Default select example">
-                                    <option selected>Choose Identification Proof</option>
+                                <select class="form-select input" name="proof" aria-label="Default select example">
+                                    <option selected value="">Choose Identification Proof</option>
                                     <option value="1">Driving License</option>
                                     <option value="2">Voter ID</option>
                                     <option value="3">Passport</option>
@@ -137,112 +122,15 @@
                             <div class="col-lg-6">
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Upload Identification Proof</label>
-                                    <input class="form-control" type="file" name="id" id="formFile">
+                                    <input class="form-control  files" type="file" name="id"
+                                        id="formFile">
                                 </div>
                             </div>
                             <div class="col-lg-6 mt-3">
                                 <label for="formFile" class="form-label">Residential Details</label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Residential Address Proof</option>
-                                    <option value="1">Bank Statement</option>
-                                    <option value="2">Electricity Bill </option>
-                                    <option value="3">Water Bill</option>
-                                    <option value="3">Telephone Bill</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-6 mt-3">
-                                <div class="mb-3">
-                                    <label for="formFile" class="form-label">Upload Identification Proof</label>
-                                    <input class="form-control" type="file" id="formFile">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-
-    <form action="" id="director2">
-        <div class="container mt-5">
-            <h4>Director 2.</h4>
-            <div class="director-wrapper  ">
-                <div class="row">
-                    <div class="col-lg-6 p-5">
-                        <div class="col-lg-12 mt-1">
-                            <div class="d-flex flex-column">
-                                <label for="" class="regLabel">Director Name : </label>
-                                <input type="text" name="dir2name" id="" class="regInput">
-                            </div>
-                        </div>
-                        <div class="col-lg-12 mt-3">
-                            <div class="d-flex flex-column">
-                                <label for="" class="regLabel">Phone Number : </label>
-                                <input type="text" name="dir2phone" id="" class="regInput">
-                            </div>
-                        </div>
-                        <div class="col-lg-12 mt-3">
-                            <div class="d-flex flex-column">
-                                <label for="" class="regLabel">Email : </label>
-                                <input type="text" name="dir2email" id="" class="regInput">
-                            </div>
-                        </div>
-                        <div class="col-lg-12 mt-3">
-                            <div class="d-flex flex-column">
-                                <label for="" class="regLabel">PAN Number : </label>
-                                <input type="text" name="dir2pan" id="" class="regInput">
-                            </div>
-                        </div>
-                        <div class="col-lg-12 mt-3">
-                            <div class="form-check">
-                                <input class="form-check-input checkbox" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    Have a DIN number?
-                                </label>
-                            </div>
-                            <div class="din">
-
-                                <div class="  d-flex flex-column mt-3 ">
-                                    <label for="" class="regLabel">DIN Number : </label>
-                                    <input type="text" name="dir2din" id="" class="regInput">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 p-5 upload-wrapper">
-                        <div class="d-flex flex-column align-items-center">
-                            <label for="">Upload Photo</label>
-                            <img src="/Assets/profile.svg" alt="" class="avatarImg">
-                            <div class="uploadbtnCvr">
-                                <span>Upload Photo</span>
-                                <input type="file" name="dir2photo" id="" class="uploadbtn">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 p-5">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <label for="formFile" class="form-label">Identification Proof</label>
-                                <select class="form-select" name="dir2idselect" aria-label="Default select example">
-                                    <option selected>Choose Identification Proof</option>
-                                    <option value="1">Driving License</option>
-                                    <option value="2">Voter ID</option>
-                                    <option value="3">Passport</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="mb-3">
-                                    <label for="formFile" class="form-label">Upload Identification Proof</label>
-                                    <input class="form-control" name="dir2id" type="file" id="formFile">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 mt-3">
-                                <label for="formFile" class="form-label">Residential Details</label>
-                                <select class="form-select" name="dir2detailsselect"
+                                <select class="form-select input" name="addressProof"
                                     aria-label="Default select example">
-                                    <option selected>Residential Address Proof</option>
+                                    <option selected value="">Residential Address Proof</option>
                                     <option value="1">Bank Statement</option>
                                     <option value="2">Electricity Bill </option>
                                     <option value="3">Water Bill</option>
@@ -252,7 +140,8 @@
                             <div class="col-lg-6 mt-3">
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Upload Identification Proof</label>
-                                    <input class="form-control" name="dir2proof" type="file" id="formFile">
+                                    <input class="form-control  files" name="proof" type="file"
+                                        id="formFile">
                                 </div>
                             </div>
                         </div>
@@ -260,64 +149,28 @@
                 </div>
             </div>
         </div>
+
     </form>
-
-    <div class="" id="newPartners">
-
-    </div>
-
-    <form action="" id="addPartner" style="display: none;">
-        <div class="container  mt-5">
-            <div class="partner-wrapper p-4">
-                <div class="row align-items-center justify-content-center ">
-                    <div class="col-lg-3 d-flex">
-                        <div class="d-flex flex-column">
-                            <label for="" class="regLabel">Partner Name : </label>
-                            <input required type="text" name="partnerName" id="" class="regInput">
-                        </div>
-                    </div>
-                    <div class="col-lg-3 d-flex ">
-                        <div class="form-check">
-                            <input class="form-check-input" name="din" type="checkbox" value="true"
-                                id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Have Din ?
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 d-flex">
-                        <div class="form-check">
-                            <input class="form-check-input" name="dsign" type="checkbox" value="true"
-                                id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                Have Digital Signature
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 d-flex">
-                        <button id="sumbitPartnerBtn" class="yellobtn px-4">Add</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-    <div class="container d-flex justify-content-end mt-3 mb-2">
-        <button id="addPartnerBtn" class="adddDealerBtn p-2">Add Partner</button>
-    </div>
-
+    <input type="text" value={{id}} id='id'>
     <button onclick="submitForm()">submit</button>
+
+
+
+
+
+
+
+
 
 
 
 </section>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 <script>
-    var addPartner = document.getElementById('addPartner')
-    var sumbitPartnerBtn = document.getElementById('sumbitPartnerBtn')
-    var addPartnerBtn = document.getElementById('addPartnerBtn')
-    var newPartners = document.getElementById('newPartners')
     const uploadbtns = document.querySelectorAll('.uploadbtn')
-    const checkboxs = document.querySelectorAll('.checkbox')
 
 
     uploadbtns.forEach(function (uploadbtn) {
@@ -332,418 +185,82 @@
         })
     });
 
+    const submitForm = (e) => {
+        let id = document.getElementById('id').value
 
-    checkboxs.forEach(function (checkbox) {
-        checkbox.addEventListener('change', (e) => {
-            let formCheck = checkbox.parentElement
-            let formCheckParent = formCheck.parentElement
-            let dininput = formCheckParent.lastElementChild
-            if (checkbox.checked) {
-                dininput.style.display = 'block'
+        let demoForm = document.getElementById('demoForm')
+        let inputs= demoForm.querySelectorAll('.input')
+        let files= demoForm.querySelectorAll('.files')
+        var formData = new FormData();
+        let valid = true
+    /*
+        for (i = 0; i < inputs.length; i++) {
+
+            formData.append(inputs[i].name, inputs[i].value);
+
+
+            if (inputs[i].value == "") {
+                console.log(">>>>>>>>>>>>>>>>>>>>>>>", inputs[i].name)
+                inputs[i].classList.add("invalid");
+                valid = false
 
             } else {
-                dininput.style.display = 'none'
-
+                inputs[i].classList.remove("invalid");
             }
-
-        })
-    });
-
-
-
-
-
-
-
-
-    addPartnerBtn.addEventListener("click", () => {
-        addPartner.style.display = 'block'
-    })
-
-
-
-    sumbitPartnerBtn.addEventListener("click", (e) => {
-        e.preventDefault()
-        var partnerData = $('#addPartner').serializeArray().reduce(function (obj, item) {
-            obj[item.name] = item.value;
-            return obj;
-        }, {});
-
-        var div = document.createElement("DIV");
-        var x = newPartners.childElementCount;
-
-        if (partnerData.din == 'true' && partnerData.dsign == 'true') {
-
-            div.innerHTML = withDinAndDigital(x)
-
-        } else if (partnerData.din == 'true' && partnerData.dsign == undefined) {
-
-            div.innerHTML = withDinAndwithoutDigital(x)
-
-        } else {
-            div.innerHTML = withoutDinAndwithoutDigital(x)
         }
-
-        obj = null
-        addPartner.style.display = 'none'
-        newPartners.append(div)
-
-
-
-        const uploadbtns = document.querySelectorAll('.uploadbtn')
-        uploadbtns.forEach(function (uploadbtn) {
-            uploadbtn.addEventListener('change', (event) => {
-                const src = URL.createObjectURL(event.target.files[0]);
-
-                let formCheck = uploadbtn.parentElement
-                let formCheckParent = formCheck.parentElement
-                let avatarImg = formCheckParent.querySelector('.avatarImg')
-                let photo = formCheckParent.querySelector('.photo')
-                console.log(formCheckParent)
-                uploadbtn.value = src
-                photo.value = src
-
-
-            })
-        });
-
-
-
-
-    })
-
-
-
-    const submitForm = (e) => {
-
-
-        var businessDetails = $('#businessDetails').serializeArray().reduce(function (obj, item) {
-            obj[item.name] = item.value;
-            return obj;
-        }, {});
-       
-
-        var director1 = $('#director1').serializeArray().reduce(function (director1, item) {
-            director1[item.name] = item.value;
-            return director1;
-        }, {});
-        var files = $('#director1').prop("files")
-
+        */
         console.log(files)
 
-        let director1form=document.getElementById('#director1')
-        let photo=director1form.getElementsByClassName('photofile')
- 
+        for (i = 0; i < files.length; i++) {
+            let file=files[i]
+            
+            formData.append('photo', file.files[0]);
+
+
+            if (files[i].files.length <=0) {
+                console.log(">>>>>>>>>>>>>>>>>>>>>>>", files[i].name)
+                files[i].classList.add("invalid");
+                valid = false
+
+            } else {
+                files[i].classList.remove("invalid");
+            }
+        }
+
+
+
+
+
+
+        if (valid ) {
+      
+
+            axios.post(`/form/${id}`, formData, {
+                  headers: {
+                      'Content-Type': 'multipart/form-data'
+                  }
+              }).then(function(response) {
+                  console.log(response)
+                  if(response.data.formSave){
+                    window.location.href=`/checkout/${response.data.id}`
+
+                  }else{
+                    window.location.href=`/checkout/${response.id}`
+
+                  }
+              });
+              
+        }
         
-     
 
 
-        var director2 = $('#director2').serializeArray().reduce(function (director2, item) {
-            director2[item.name] = item.value;
-            return director2;
-        }, {});
-        formData.append("director2", director2)
-        data.append(director2)
 
-        console.log(data)
+
+
 
 
     }
 
+   
 
-    const withDinAndDigital = (length) => {
-        return (
-            `
-    <form action="">
-        <div class="container mt-5">
-            <h4>Partner ${length + 1}</h4>
-            <div class="director-wrapper  ">
-                <div class="row">
-                    <div class="col-lg-6 p-5">
-                        <div class="col-lg-12 mt-1">
-                            <div class="d-flex flex-column">
-                                <label for="" class="regLabel">Director Name : </label>
-                                <input type="text" name="" id="" class="regInput">
-                            </div>
-                        </div>
-                        <div class="col-lg-12 mt-3">
-                            <div class="d-flex flex-column">
-                                <label for="" class="regLabel">Phone Number : </label>
-                                <input type="text" name="" id="" class="regInput">
-                            </div>
-                        </div>
-                        <div class="col-lg-12 mt-3">
-                            <div class="d-flex flex-column">
-                                <label for="" class="regLabel">Email : </label>
-                                <input type="text" name="" id="" class="regInput">
-                            </div>
-                        </div>
-                        <div class="col-lg-12 mt-3">
-                            <div class="d-flex flex-column">
-                                <label for="" class="regLabel">PAN Number : </label>
-                                <input type="text" name="" id="" class="regInput">
-                            </div>
-                        </div>
-                        <div class="col-lg-12 mt-3">
-                            <div class="  d-flex flex-column mt-3 ">
-                                    <label for="" class="regLabel">DIN Number : </label>
-                                    <input type="text" name="" id="" class="regInput">
-                                </div>
-                        </div>
-                        <div class="col-lg-12 mt-3">
-                            <div class="  d-flex flex-column mt-3 ">
-                                    <label for="" class="regLabel">Digital Signature : </label>
-                                    <input type="text" name="" id="" class="regInput">
-                                </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 p-5 upload-wrapper">
-                        <div class="d-flex flex-column align-items-center">
-                            <label for="">Upload Photo</label>
-                            <img src="/Assets/profile.svg" alt="" class="avatarImg">
-                            <div class="uploadbtnCvr">
-                                <span>Upload Photo</span>
-                                <input type="file" name="" id="" class="uploadbtn">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 p-5">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <label for="formFile" class="form-label">Identification Proof</label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Choose Identification Proof</option>
-                                    <option value="1">Driving License</option>
-                                    <option value="2">Voter ID</option>
-                                    <option value="3">Passport</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="mb-3">
-                                    <label for="formFile" class="form-label">Upload Identification Proof</label>
-                                    <input class="form-control" type="file" id="formFile">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 mt-3">
-                                <label for="formFile" class="form-label">Residential Details</label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Residential Address Proof</option>
-                                    <option value="1">Bank Statement</option>
-                                    <option value="2">Electricity Bill </option>
-                                    <option value="3">Water Bill</option>
-                                    <option value="3">Telephone Bill</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-6 mt-3">
-                                <div class="mb-3">
-                                    <label for="formFile" class="form-label">Upload Identification Proof</label>
-                                    <input class="form-control" type="file" id="formFile">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-    `
-
-
-        )
-    }
-
-    const withDinAndwithoutDigital = (length) => {
-        return (
-            `
-    <form action="">
-        <div class="container mt-5">
-            <h4>Partner ${length + 1}</h4>
-            <div class="director-wrapper  ">
-                <div class="row">
-                    <div class="col-lg-6 p-5">
-                        <div class="col-lg-12 mt-1">
-                            <div class="d-flex flex-column">
-                                <label for="" class="regLabel">Director Name : </label>
-                                <input type="text" name="" id="" class="regInput">
-                            </div>
-                        </div>
-                        <div class="col-lg-12 mt-3">
-                            <div class="d-flex flex-column">
-                                <label for="" class="regLabel">Phone Number : </label>
-                                <input type="text" name="" id="" class="regInput">
-                            </div>
-                        </div>
-                        <div class="col-lg-12 mt-3">
-                            <div class="d-flex flex-column">
-                                <label for="" class="regLabel">Email : </label>
-                                <input type="text" name="" id="" class="regInput">
-                            </div>
-                        </div>
-                        <div class="col-lg-12 mt-3">
-                            <div class="d-flex flex-column">
-                                <label for="" class="regLabel">PAN Number : </label>
-                                <input type="text" name="" id="" class="regInput">
-                            </div>
-                        </div>
-                        <div class="col-lg-12 mt-3">
-                            <div class="  d-flex flex-column mt-3 ">
-                                    <label for="" class="regLabel">DIN Number : </label>
-                                    <input type="text" name="" id="" class="regInput">
-                                </div>
-                        </div>
-                      
-                    </div>
-                    <div class="col-lg-6 p-5 upload-wrapper">
-                        <div class="d-flex flex-column align-items-center">
-                            <label for="">Upload Photo</label>
-                            <img src="/Assets/profile.svg" alt="" class="avatarImg">
-                            <div class="uploadbtnCvr">
-                                <span>Upload Photo</span>
-                                <input type="file" name="" id="" class="uploadbtn">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 p-5">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <label for="formFile" class="form-label">Identification Proof</label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Choose Identification Proof</option>
-                                    <option value="1">Driving License</option>
-                                    <option value="2">Voter ID</option>
-                                    <option value="3">Passport</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="mb-3">
-                                    <label for="formFile" class="form-label">Upload Identification Proof</label>
-                                    <input class="form-control" type="file" id="formFile">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 mt-3">
-                                <label for="formFile" class="form-label">Residential Details</label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Residential Address Proof</option>
-                                    <option value="1">Bank Statement</option>
-                                    <option value="2">Electricity Bill </option>
-                                    <option value="3">Water Bill</option>
-                                    <option value="3">Telephone Bill</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-6 mt-3">
-                                <div class="mb-3">
-                                    <label for="formFile" class="form-label">Upload Identification Proof</label>
-                                    <input class="form-control" type="file" id="formFile">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-    `
-
-
-        )
-    }
-
-    const withoutDinAndwithoutDigital = (length) => {
-        return (
-            `
-    <form action="">
-        <div class="container mt-5">
-            <h4>Partner ${length + 1}</h4>
-            <div class="director-wrapper  ">
-                <div class="row">
-                    <div class="col-lg-6 p-5">
-                        <div class="col-lg-12 mt-1">
-                            <div class="d-flex flex-column">
-                                <label for="" class="regLabel">Director Name : </label>
-                                <input type="text" name="" id="" class="regInput">
-                            </div>
-                        </div>
-                        <div class="col-lg-12 mt-3">
-                            <div class="d-flex flex-column">
-                                <label for="" class="regLabel">Phone Number : </label>
-                                <input type="text" name="" id="" class="regInput">
-                            </div>
-                        </div>
-                        <div class="col-lg-12 mt-3">
-                            <div class="d-flex flex-column">
-                                <label for="" class="regLabel">Email : </label>
-                                <input type="text" name="" id="" class="regInput">
-                            </div>
-                        </div>
-                        <div class="col-lg-12 mt-3">
-                            <div class="d-flex flex-column">
-                                <label for="" class="regLabel">PAN Number : </label>
-                                <input type="text" name="" id="" class="regInput">
-                            </div>
-                        </div>
-                       
-                      
-                    </div>
-                    <div class="col-lg-6 p-5 upload-wrapper">
-                        <div class="d-flex flex-column align-items-center">
-                            <label for="">Upload Photo</label>
-                            <img src="/Assets/profile.svg" alt="" class="avatarImg">
-                            <div class="uploadbtnCvr">
-                                <span>Upload Photo</span>
-                                <input type="file" name="" id="" class="uploadbtn">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 p-5">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <label for="formFile" class="form-label">Identification Proof</label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Choose Identification Proof</option>
-                                    <option value="1">Driving License</option>
-                                    <option value="2">Voter ID</option>
-                                    <option value="3">Passport</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="mb-3">
-                                    <label for="formFile" class="form-label">Upload Identification Proof</label>
-                                    <input class="form-control" type="file" id="formFile">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 mt-3">
-                                <label for="formFile" class="form-label">Residential Details</label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Residential Address Proof</option>
-                                    <option value="1">Bank Statement</option>
-                                    <option value="2">Electricity Bill </option>
-                                    <option value="3">Water Bill</option>
-                                    <option value="3">Telephone Bill</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-6 mt-3">
-                                <div class="mb-3">
-                                    <label for="formFile" class="form-label">Upload Identification Proof</label>
-                                    <input class="form-control" type="file" id="formFile">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-    `
-
-
-        )
-    }
-
-  
 </script>

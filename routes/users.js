@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 const { doSignup, doLogin } = require('../helpers/authHelpers')
 const { createService, getAmount, addAddons, addAddress, saveData, checkout } = require('../helpers/userHelpers')
+const fs= require('fs')
+const path =require('path')
 
 const multer = require('multer')
 
@@ -200,19 +202,18 @@ router.post('/addon/:id/:addon', function (req, res) {
 
 });
 
-router.post('/form/:id', cpUpload, function (req, res, next) {
+router.post('/form/:id', cpUpload, function (req, res) {
 
   const id = req.params.id
-  console.log(req.body);
 
-  console.log(req.files);
-  let data = { ...req.body }
+  let data = req.body
+  console.log("req.body",data);
 
   saveData(id, data).then(() => {
-    res.redirect(`/checkout/${id}`)
-
+    res.json({formSave:true,id})
+    
   }).catch(() => {
-    res.redirect('/')
+    res.json({formSave:false})
 
   })
 
@@ -272,6 +273,13 @@ router.get('/form2', (req, res) => {
 
 
 router.get("/files/downloads/:id", (req, res) => {
+  const fs = require('fs');
+
+fs.readdir(testFolder, (err, files) => {
+  files.forEach(file => {
+    console.log(file);
+  });
+});  
   console.log("Dfasdf");
   let location = path.join(__dirname, `../public/uploads/${req.params.id}/download.jpg`)
 
