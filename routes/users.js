@@ -2,8 +2,10 @@ var express = require('express');
 var router = express.Router();
 const { doSignup, doLogin } = require('../helpers/authHelpers')
 const { createService, getAmount, addAddons, addAddress, saveData, checkout } = require('../helpers/userHelpers')
-const fs= require('fs')
-const path =require('path')
+const fs = require('fs')
+const path = require('path')
+var AdmZip = require("adm-zip");
+
 
 const multer = require('multer')
 
@@ -115,10 +117,10 @@ router.get('/logout', function (req, res) {
 })
 
 
-router.get('/ourServices',function (req,res) {
+router.get('/ourServices', function (req, res) {
 
   res.render('user/ourServices')
- 
+
 })
 
 
@@ -163,23 +165,23 @@ router.get('/form/:service/:id', function (req, res) {
   let serviceName = req.params.service
 
   getAmount(id).then((service) => {
-    if(serviceName==='LimitedLiabilityPartnership'){
+    if (serviceName === 'LimitedLiabilityPartnership') {
 
       res.render('user/Form/LimitedLiabilityPartnershipForm', { id, Totel: service[0].total });
-      
-    }else if(serviceName==='PrivateLimitedCompany'){
+
+    } else if (serviceName === 'PrivateLimitedCompany') {
       res.render('user/Form/PrivateLimitedCompanyForm', { id, Totel: service[0].total });
 
     }
-    else if(serviceName==='OnePersonCompany'){
+    else if (serviceName === 'OnePersonCompany') {
       res.render('user/Form/OnePersonCompanyForm', { id, Totel: service[0].total });
 
     }
-    else if(serviceName==='Proprietorship'){
+    else if (serviceName === 'Proprietorship') {
       res.render('user/Form/ProprietorshipForm', { id, Totel: service[0].total });
 
     }
-    else if(serviceName==='PartnershipFirm'){
+    else if (serviceName === 'PartnershipFirm') {
       res.render('user/Form/PartnershipFirmForm', { id, Totel: service[0].total });
 
     }
@@ -207,13 +209,13 @@ router.post('/form/:id', cpUpload, function (req, res) {
   const id = req.params.id
 
   let data = req.body
-  console.log("req.body",data);
+  console.log("req.body", data);
 
   saveData(id, data).then(() => {
-    res.json({formSave:true,id})
-    
+    res.json({ formSave: true, id })
+
   }).catch(() => {
-    res.json({formSave:false})
+    res.json({ formSave: false })
 
   })
 
@@ -273,18 +275,30 @@ router.get('/form2', (req, res) => {
 
 
 router.get("/files/downloads/:id", (req, res) => {
-  const fs = require('fs');
+  const id = req.params.id
+  const zip = new AdmZip();
 
-fs.readdir(testFolder, (err, files) => {
-  files.forEach(file => {
-    console.log(file);
-  });
-});  
-  console.log("Dfasdf");
-  let location = path.join(__dirname, `../public/uploads/${req.params.id}/download.jpg`)
+  var uploadDir = fs.readdirSync("public/uploads/" + id);
+  var parentDir = path.dirname(__dirname);
+  parentDir
 
-  console.log(location);
-  res.download(location);
+
+  for (var i = 0; i < uploadDir.length; i++) {
+    zip.addLocalFile(parentDir+"/public/uploads/"+ id+'/'+ uploadDir[i]);
+  }
+  const downloadName = `${Date.now()}.zip`;
+
+  const data = zip.toBuffer();
+
+  zip.writeZip(__dirname+"/"+downloadName);
+  
+  // code to download zip file
+
+  res.set('Content-Type','application/octet-stream');
+  res.set('Content-Disposition',`attachment; filename=${downloadName}`);
+  res.set('Content-Length',data.length);
+  res.send(data);
+
 });
 
 module.exports = router;
