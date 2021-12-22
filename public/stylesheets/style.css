@@ -156,15 +156,15 @@ body {
   
 }
 
-.header .navbar {
-  background-color: transparent;
+.navbar {
+  background-color: #1c1d1c;
 }
 
-.header .navbar .navbar-brand {
+.navbar .navbar-brand {
   font-weight: 500;
 }
 
-.header .navbar .loginbtn {
+ .navbar .loginbtn {
   color: #fdc66f;
   text-decoration: none;
   font-weight: bold;
@@ -825,5 +825,13 @@ body {
   color: #fff;
   font-weight: bold;
   text-align: center;
+}
+
+.formHeading{
+  margin-top: 50px;
+  text-align: center;
+  color: #ff9d00;
+  font-weight: bold;
+
 }
 /* Registration form */

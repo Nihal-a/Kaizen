@@ -1,47 +1,19 @@
-<Header class="header">
-    <nav class="navbar navbar-expand-lg navbar-dark  sticky-top">
-        <div class="container ">
-            <a class="navbar-brand" href="#">Kaizen Coworks.</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse mx-auto" id="navbarSupportedContent">
-                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
-                    </li>
-                    <li class="nav-item"></li>
-                    <a class="nav-link ">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="#">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Blogs</a>
-                    </li>
-                    <li class="nav-item"></li>
-                    <a class="nav-link ">My Applications</a>
-                    </li>
-
-                </ul>
-                <div>
-                    <a href="" class="loginbtn">Log in</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-</Header>
 <section>
+    <div>
+        <h2 class="formHeading">
+            One Person Company
+            <br>
+            Registration
+        </h2>
+    </div>
     <form id="demoForm" action="/form/{{id}}" enctype="multipart/form-data" method="post">
 
         <div class="container mt-5" id="BusinessDetails">
-            <h4>Business Details.</h4>
-           
+            <div class="container d-flex justify-content-between mt-3 mb-2">
+                <h4>Business Details.</h4>
+                <h5 class="formPrice">Totel Price : Rs. <span id="price">{{Totel}}/-</span> </h5>
+            </div>
+
             <div class="business-wrapper  p-5">
                 <div class="row">
                     <h5 class="regTitle">Business Name Suggetion : </h5>
@@ -52,12 +24,13 @@
                         </div>
                         <span></span>
                     </div>
-                  
+
                 </div>
                 <div class=" p-3">
                     <div class="d-flex flex-column">
                         <label for="" class="regLabel">About the Business : </label>
-                        <textarea class="regTextArea mt-2 input" name="activity" required id="" cols="30" rows="5"></textarea>
+                        <textarea class="regTextArea mt-2 input" name="activity" required id="" cols="30"
+                            rows="5"></textarea>
                     </div>
 
                 </div>
@@ -119,8 +92,8 @@
                             <img src="/Assets/profile.svg" alt="" class="avatarImg ">
                             <div class="uploadbtnCvr">
                                 <span>Upload Photo</span>
-                                <input type="file" src="" required name="photo" id="photo" class="uploadbtn photofile files"
-                                    accept="image/*">
+                                <input type="file" src="" required name="photo" id="photo"
+                                    class="uploadbtn photofile files" accept="image/*">
                             </div>
                         </div>
                     </div>
@@ -130,7 +103,8 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <label for="formFile" class="form-label">Identification Proof</label>
-                                <select class="form-select input" name="proof" required aria-label="Default select example">
+                                <select class="form-select input" name="proof" required
+                                    aria-label="Default select example">
                                     <option selected value="">Choose Identification Proof</option>
                                     <option value="1">Driving License</option>
                                     <option value="2">Voter ID</option>
@@ -145,7 +119,8 @@
                             </div>
                             <div class="col-lg-6 mt-3">
                                 <label for="formFile" class="form-label">Residential Details</label>
-                                <select class="form-select input" name="id" required aria-label="Default select example">
+                                <select class="form-select input" name="id" required
+                                    aria-label="Default select example">
                                     <option selected value="">Residential Address Proof</option>
                                     <option value="1">Bank Statement</option>
                                     <option value="2">Electricity Bill </option>
@@ -265,18 +240,18 @@
         </div>
 
 
-     
+
 
 
 
     </form>
 
     <div class="container d-flex justify-content-between mt-3 mb-2">
-        <h5 class="formPrice">Totel Price : &#x20B9;  <span  id="price">{{Totel}}/-</span> </h5>
+        <h5 class="formPrice">Totel Price : &#x20B9; <span id="price">{{Totel}}/-</span> </h5>
     </div>
     <input type="text" name="" id="id" value={{id}} class="displaynone">
     <div class="d-flex justify-content-center">
-                <button id="submit"   class="yellobtn">Save and Checkout</button>
+        <button id="submit" class="yellobtn">Save and Checkout</button>
 
     </div>
 
@@ -309,8 +284,8 @@
         let id = document.getElementById('id').value
 
         let demoForm = document.getElementById('demoForm')
-        let inputs= demoForm.querySelectorAll('.input')
-        let files= demoForm.querySelectorAll('.files')
+        let inputs = demoForm.querySelectorAll('.input')
+        let files = demoForm.querySelectorAll('.files')
         var formData = new FormData();
         let valid = true
 
@@ -331,12 +306,12 @@
         console.log(files)
 
         for (i = 0; i < files.length; i++) {
-            let file=files[i]
-            
+            let file = files[i]
+
             formData.append('photo', file.files[0]);
 
 
-            if (files[i].files.length <=0) {
+            if (files[i].files.length <= 0) {
                 console.log(">>>>>>>>>>>>>>>>>>>>>>>", files[i].name)
                 files[i].classList.add("invalid");
                 valid = false
@@ -351,27 +326,26 @@
 
 
 
-        if (valid ) {
+        if (valid) {
             alert()
-      
+
 
             axios.post(`/form/${id}`, formData, {
-                  headers: {
-                      'Content-Type': 'multipart/form-data'
-                  }
-              }).then(function(response) {
-                  console.log(response)
-                  if(response.data.formSave){
-                    window.location.href=`/checkout/${response.data.id}`
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            }).then(function (response) {
+                console.log(response)
+                if (response.data.formSave) {
+                    window.location.href = `/checkout/${response.data.id}`
 
-                  }else{
-                    window.location.href=`/checkout/${response.id}`
+                } else {
+                    window.location.href = `/checkout/${response.id}`
 
-                  }
-              });
-              
+                }
+            });
+
         }
-        
 
 
 
@@ -379,12 +353,13 @@
 
 
 
-    
 
 
-});
-  
-   
-   
+
+
+    });
+
+
+
 
 </script>
