@@ -57,16 +57,16 @@ const verifylogout = (req, res, next) => {
 
 /* GET users listing. */
 router.get('/', function (req, res) {
-  res.render('user/userHome');
+  res.render('user/userHome',{userHeader:true});
 });
 
 
 router.get('/login', verifylogout, function (req, res) {
-  res.render('user/UserLogin');
+  res.render('user/UserLogin',{userHeader:true});
 });
 
 router.get('/signup', verifylogout, function (req, res) {
-  res.render('user/UserSignup');
+  res.render('user/UserSignup',{userHeader:true});
 });
 
 
@@ -119,26 +119,26 @@ router.get('/logout', function (req, res) {
 
 router.get('/ourServices', function (req, res) {
 
-  res.render('user/ourServices')
+  res.render('user/ourServices',{userHeader:true})
 
 })
 
 
 
 router.get('/PrivateLimitedCompany', function (req, res) {
-  res.render('user/PrivateLimitedCompany');
+  res.render('user/PrivateLimitedCompany',{userHeader:true});
 });
 router.get('/LimitedLiabilityPartnership', function (req, res) {
-  res.render('user/LimitedLiabilityPartnership');
+  res.render('user/LimitedLiabilityPartnership',{userHeader:true});
 });
 router.get('/OnePersonCompany', function (req, res) {
-  res.render('user/OnePersonCompany');
+  res.render('user/OnePersonCompany',{userHeader:true});
 });
 router.get('/Proprietorship', function (req, res) {
-  res.render('user/Proprietorship');
+  res.render('user/Proprietorship',{userHeader:true});
 });
 router.get('/PartnershipFirm', function (req, res) {
-  res.render('user/PartnershipFirm');
+  res.render('user/PartnershipFirm',{userHeader:true});
 });
 
 
@@ -167,22 +167,22 @@ router.get('/form/:service/:id', function (req, res) {
   getAmount(id).then((service) => {
     if (serviceName === 'LimitedLiabilityPartnership') {
 
-      res.render('user/Form/LimitedLiabilityPartnershipForm', { id, Totel: service[0].total });
+      res.render('user/Form/LimitedLiabilityPartnershipForm', { id, Totel: service[0].total, userHeader:true});
 
     } else if (serviceName === 'PrivateLimitedCompany') {
-      res.render('user/Form/PrivateLimitedCompanyForm', { id, Totel: service[0].total });
+      res.render('user/Form/PrivateLimitedCompanyForm', { id, Totel: service[0].total, userHeader:true});
 
     }
     else if (serviceName === 'OnePersonCompany') {
-      res.render('user/Form/OnePersonCompanyForm', { id, Totel: service[0].total });
+      res.render('user/Form/OnePersonCompanyForm', { id, Totel: service[0].total, userHeader:true});
 
     }
     else if (serviceName === 'Proprietorship') {
-      res.render('user/Form/ProprietorshipForm', { id, Totel: service[0].total });
+      res.render('user/Form/ProprietorshipForm', { id, Totel: service[0].total,luserHeader:true });
 
     }
     else if (serviceName === 'PartnershipFirm') {
-      res.render('user/Form/PartnershipFirmForm', { id, Totel: service[0].total });
+      res.render('user/Form/PartnershipFirmForm', { id, Totel: service[0].total, userHeader:true});
 
     }
   })
@@ -226,7 +226,7 @@ router.post('/form/:id', cpUpload, function (req, res) {
 router.get('/checkout/:id', verifylogin, function (req, res) {
   let id = req.params.id
   getAmount(id).then((service) => {
-    res.render('user/Checkout', { id, Totel: service[0].total });
+    res.render('user/Checkout', { id, Totel: service[0].total,userHeader:true });
   }).catch((err) => {
     res.redirect('/404')
   })
@@ -266,7 +266,7 @@ router.post('/checkout/:id', verifylogin, function (req, res) {
 
 
 router.get('/form', (req, res) => {
-  res.render('user/form')
+  res.render('user/form',)
 })
 router.get('/form2', (req, res) => {
   res.render('user/form2')
