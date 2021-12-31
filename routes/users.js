@@ -301,4 +301,7 @@ router.get("/files/downloads/:id", (req, res) => {
 
 });
 
+router.get('/contact', function (req, res) {
+  res.render('user/Contact', {userHeader:true});
+});
 module.exports = router;
